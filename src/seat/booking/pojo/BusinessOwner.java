@@ -17,15 +17,15 @@ public class BusinessOwner {
 
 
     private BUSINESS_TYPE type;
-    public GrandeFloorGrid grandeFloorGrid;
+    public Room room;
     private BigDecimal price;
 
-    public BusinessOwner(String name, Date startTime, Date endTime, BUSINESS_TYPE type, GrandeFloorGrid grandeFloorGrid, BigDecimal price) {
+    public BusinessOwner(String name, Date startTime, Date endTime, BUSINESS_TYPE type, Room room, BigDecimal price) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
         this.type = type;
-        this.grandeFloorGrid = grandeFloorGrid;
+        this.room = room;
         this.price = price;
     }
 
@@ -45,12 +45,12 @@ public class BusinessOwner {
         this.type = type;
     }
 
-    public GrandeFloorGrid getGrandeFloorGrid() {
-        return grandeFloorGrid;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setGrandeFloorGrid(GrandeFloorGrid grandeFloorGrid) {
-        this.grandeFloorGrid = grandeFloorGrid;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public BigDecimal getPrice() {
@@ -82,7 +82,7 @@ public class BusinessOwner {
         return "BusinessOwner{" +
                 "name='" + name + '\'' +
                 ", type=" + type +
-                ", grandeFloorGrid=" + grandeFloorGrid +
+                ", room=" + room +
                 ", price=" + price +
                 '}';
     }

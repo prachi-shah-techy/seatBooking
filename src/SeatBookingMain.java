@@ -1,5 +1,5 @@
 import seat.booking.pojo.BusinessOwner;
-import seat.booking.pojo.GrandeFloorGrid;
+import seat.booking.pojo.Room;
 import seat.booking.service.AdminService;
 import seat.booking.service.BusinessOwnerService;
 import seat.booking.service.UserService;
@@ -76,9 +76,9 @@ public class SeatBookingMain {
 
     private static void addSampleData() {
         try {
-            BusinessOwner businessOwner = new BusinessOwner("Sample 1", DATE_FORMATTER.parse("10/10/2022"), DATE_FORMATTER.parse("11/10/2022"), BUSINESS_TYPE.RESTAURANT, new GrandeFloorGrid(5, 5), new BigDecimal(100));
-            BusinessOwner businessOwner2 = new BusinessOwner("Sample 2", DATE_FORMATTER.parse("01/03/2023"), DATE_FORMATTER.parse("01/03/2023"), BUSINESS_TYPE.AIRPORT, new GrandeFloorGrid(5, 5), new BigDecimal(200));
-            BusinessOwner businessOwner3 = new BusinessOwner("Sample 3", DATE_FORMATTER.parse("05/03/2023"), DATE_FORMATTER.parse("05/03/2023"), BUSINESS_TYPE.CINEMA, new GrandeFloorGrid(5, 5), new BigDecimal(300));
+            BusinessOwner businessOwner = new BusinessOwner("Sample 1", DATE_FORMATTER.parse("10/10/2022"), DATE_FORMATTER.parse("11/10/2022"), BUSINESS_TYPE.RESTAURANT, new Room(5, 5), new BigDecimal(100));
+            BusinessOwner businessOwner2 = new BusinessOwner("Sample 2", DATE_FORMATTER.parse("01/03/2023"), DATE_FORMATTER.parse("01/03/2023"), BUSINESS_TYPE.AIRPORT, new Room(5, 5), new BigDecimal(200));
+            BusinessOwner businessOwner3 = new BusinessOwner("Sample 3", DATE_FORMATTER.parse("05/03/2023"), DATE_FORMATTER.parse("05/03/2023"), BUSINESS_TYPE.CINEMA, new Room(5, 5), new BigDecimal(300));
 
             DataHolder.addBusinessOwner(businessOwner);
             DataHolder.addBusinessOwner(businessOwner2);
