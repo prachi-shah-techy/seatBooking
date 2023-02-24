@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
                 for (int i = 0; i < businessOwners.size(); i++) {
                     System.out.println((i + 1) + ": " + businessOwners.get(i).getName());
                     System.out.println(businessOwners.get(i).getStartTime() + " = TO =" + businessOwners.get(i).getEndTime());
-                    System.out.println(businessOwners.get(i).getGrandeFloorGrid());
+                    System.out.println(businessOwners.get(i).getRoom());
                 }
                 System.out.println("Please enter your preferred choice");
                 int userSelection = SCANNER.nextInt();
@@ -153,7 +153,7 @@ public class UserServiceImpl implements UserService {
     private void printSeatMatrix(BusinessOwner businessOwner, String name) {
         System.out.println("Seat availability");
         System.out.println("X -> for Availability || R -> available for Resell");
-        System.out.println(businessOwner.getGrandeFloorGrid());
+        System.out.println(businessOwner.getRoom());
     }
 
     private void seatReservation(BusinessOwner businessOwner, String name) {
@@ -163,7 +163,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("Enter column");
             int selectedColumn = SCANNER.nextInt();
 
-            Seat availableSeat = businessOwner.getGrandeFloorGrid().queryAvailableSeat(selectedRow, selectedColumn);
+            Seat availableSeat = businessOwner.getRoom().queryAvailableSeat(selectedRow, selectedColumn);
             if (availableSeat == null) {
                 System.out.println("Sorry, we could not book the requested seat.");
             } else {
@@ -180,7 +180,7 @@ public class UserServiceImpl implements UserService {
                     System.out.println("  Congratulations !! Seat is booked.");
                     System.out.println("  Your booking code is : " + user.getBookingCode());
                     System.out.println("=======================================");
-                    System.out.println(businessOwner.getGrandeFloorGrid());
+                    System.out.println(businessOwner.getRoom());
                 }
             }
         } catch (IOException e) {
@@ -204,8 +204,8 @@ public class UserServiceImpl implements UserService {
     private BigDecimal calculatePrice(BusinessOwner businessOwner, Seat availableSeat) {
 
         BigDecimal regularPrice = businessOwner.getPrice();
-        int lastRow = businessOwner.getGrandeFloorGrid().getLastRow();
-        int lastColumn = businessOwner.getGrandeFloorGrid().getLastColumnInt();
+        int lastRow = businessOwner.getRoom().getLastRow();
+        int lastColumn = businessOwner.getRoom().getLastColumnInt();
         BigDecimal twentyFivePercentValue = regularPrice.multiply(new BigDecimal(25)).divide(new BigDecimal(100));
 
         if (availableSeat.getSeatPosition().getRow() == 0) {

@@ -1,7 +1,7 @@
 package seat.booking.service.impl;
 
 import seat.booking.pojo.BusinessOwner;
-import seat.booking.pojo.GrandeFloorGrid;
+import seat.booking.pojo.Room;
 import seat.booking.service.BusinessOwnerService;
 import seat.booking.util.DataHolder;
 
@@ -42,8 +42,8 @@ public class BusinessOwnerServiceImpl implements BusinessOwnerService {
                 System.out.println("6. Price");
                 BigDecimal price = new BigDecimal(INPUT.readLine());
 
-                BusinessOwner businessOwner = new BusinessOwner(name, startTime, endTime, businessType, new GrandeFloorGrid(row, column), price);
-                System.out.println(businessOwner.getGrandeFloorGrid());
+                BusinessOwner businessOwner = new BusinessOwner(name, startTime, endTime, businessType, new Room(row, column), price);
+                System.out.println(businessOwner.getRoom());
 
                 DataHolder.addBusinessOwner(businessOwner);
 
